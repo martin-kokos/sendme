@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "sendme"
+version = "0.1.0"
+description = "Simple HTTP file requesting form"
+authors = ["Martin Mokry <martin-kokos@users.noreply.github.com>"]
+license = "Apache License 2.0"
+readme = "README.md"
+packages = [{include = "sendme"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.101.1"
+uvicorn = "^0.20.0"
+python-multipart = "^0.0.5"
+requests = "^2.28.2"
+qrcode = "^7.4.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.1"
+black = "^23.1.0"
+pytest-cov = "^4.1.0"
+pytest-asyncio = "^0.21.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 130
+exclude = ["alembic"]
+
+[tool.flake8]
+max-line-length = 130
+extend-ignore = ["D203", "E203", "E251", "E266", "E302", "E305", "E401", "E402", "E501", "F401", "F403", "W503"]
+exclude = [".git", "__pycache__", "dist", "alembic"]
+max-complexity = 10
+
+[tool.isort]
+atomic = true
+profile = "black"
+line_length = 130
+skip_gitignore = true
